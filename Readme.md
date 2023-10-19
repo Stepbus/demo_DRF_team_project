@@ -1,4 +1,6 @@
-To run
+Getting Started
+
+To get the project up and running, follow these steps:
 
     create and fill in the file ".env" according to the sample ".env.example"
 
@@ -6,34 +8,37 @@ To run
 
     Migrations will be applied, samples will be created from the "fixtures.json" file, and the project will be launched
 
-* Database project: Postgres 
+Requirements
 
-* To create an admin outside the terminal, the main page will offer to create an admin user
+    * Database: Postgres
+
+Features
+
+Admin Panel: 
+
+    * The administrative panel is powered by jazzmin
+    * Fields for search, sorting, and filtering added to the admin panel
+
+API:
+
+    * Models have m2m relationships.
+    * URL for instances for quick transition.
+    * Additional information on the calculation of related parties.
+    * Custom validation for model fields.
+    * Default pagination implemented.
+
+Permissions:
     
-* Established permissions : IsAdminUser
+    * Uses IsAdminUser for access control.
 
-Admin panel
+User Authentication:
 
-    The administrative panel is powered by jazzmin
-    Fields for search, sorting, and filtering added to the admin panel
+    * The main page offers an admin user creation outside the terminal.
+    * A login window appears upon entering the main page. Successful registration automatically logs the user in and redirects to the API page.
+    * Option to login with an existing user.
+    * "Log in" button on the main page changes to "To API" if the user is logged in.
+    * Logout option available in the admin panel on the API page.
 
-API
+Documentation:
 
-    The models have a m2m relationships
-    added url for instances for quick transition 
-    additional information on the calculation of related parties has been added
-    changed the name of some fields for better understanding of the logic
-    added a custom validation for the fields in the models
-    added default paginations
-
-Admin users
-    
-    When entering the main page, a user registration window appears. After the user is successfully added, he or she is automatically logged in with the created account and redirected to the API page.
-    It is possible to enter the data of an existing user.
-    
-    If the user is logged in, the "Log in" button on the main page changes to "To API" 
-    You can unlog in on the API page in the admin panel
-
-Swagger
-
-    url "swagger/" will allow you to check the documentation based on swagger
+    * Swagger documentation is available at swagger/ URL.
