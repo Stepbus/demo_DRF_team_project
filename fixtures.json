@@ -1,0 +1,36 @@
+[
+  {
+    "model": "team_app.team",
+    "pk": 1,
+    "fields": {
+      "name": "Team Alpha"
+    }
+  },
+  {
+    "model": "team_app.team",
+    "pk": 2,
+    "fields": {
+      "name": "Team Beta"
+    }
+  },
+  {
+    "model": "team_app.person",
+    "pk": 1,
+    "fields": {
+      "name": "John",
+      "surname": "Doe",
+      "email": "john.doe@example.com",
+      "teams": [1]
+    }
+  },
+  {
+    "model": "team_app.person",
+    "pk": 2,
+    "fields": {
+      "name": "Jane",
+      "surname": "Doe",
+      "email": "jane.doe@example.com",
+      "teams": [1, 2]
+    }
+  }
+]

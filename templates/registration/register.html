@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .alert {
+            color: red;
+            font-size: 14px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .note {
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .button-container button {
+            margin-left: 10px;
+        }
+        .button-container div a {
+            text-decoration:none;
+            color: white;
+        }
+        .to-api-button-div {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .to-api-button-div:hover {
+            background-color: #0056b3;
+        }
+
+        .to-api-button-link {
+            text-decoration: none;
+            color: white;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Register</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="alert">
+                            {{ field.errors|join:'<br>' }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+           <div class="button-container">
+                <button type="submit">Register</button>
+               {% if user.is_authenticated %}
+                <div class="to-api-button-div">
+                    <a href="{% url 'api-root' %}" class="to-api-button">To API</a>
+                </div>
+               {% else %}
+                   <div class="to-api-button-div">
+                        <a href="{% url 'rest_framework:login' %}?next=/api/" class="to-api-button">Log in</a>
+                   </div>
+               {% endif %}
+
+            </div>
+        </form>
+    </div>
+    <div class="container note">
+        Note: the values "is_staff", "is_active" and "is_superuser" are set to "True" for each user
+        who successfully registered,
+        which is not desirable in a real application for security reasons.
+        This form is provided so that you don't have to create a superuser via the command line.
+        In a real application, you would need some logic to determine who gets these privileges.
+    </div>
+
+</body>
+</html>
