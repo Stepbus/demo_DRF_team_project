@@ -7,7 +7,6 @@ from .models import Team, Person
 
 
 class TeamSerializer(serializers.ModelSerializer):
-    members = StringRelatedField(many=True, read_only=True)
     team_url = serializers.HyperlinkedIdentityField(view_name='team-detail')
 
     class Meta:
