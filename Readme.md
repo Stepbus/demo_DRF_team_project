@@ -23,7 +23,8 @@ API
     added url for instances for quick transition 
     additional information on the calculation of related parties has been added
     changed the name of some fields for better understanding of the logic
-    added a custom check for the name field in the Team model
+    added a custom validation for the fields in the models
+    added default paginations
 
 Admin users
     

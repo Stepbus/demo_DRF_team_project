@@ -15,8 +15,6 @@ class TeamAdmin(admin.ModelAdmin):
 
     list_display_links = ('id', 'name')
 
-    list_filter = ('id', 'name')
-
     search_fields = ['id', 'name']
 
     def get_queryset(self, request):
@@ -39,7 +37,7 @@ class PersonAdmin(admin.ModelAdmin):
 
     list_display_links = ('name', 'surname', 'email')
 
-    list_filter = ('name', 'surname', 'email')
+    list_filter = ('name', 'surname')
 
     search_fields = ['name', 'surname', 'email']
 

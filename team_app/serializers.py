@@ -46,6 +46,20 @@ class PersonSerializer(serializers.ModelSerializer):
         model = Person
         fields = ['id', 'name', 'surname', 'email', 'teams', 'person_url']
 
+    def validate_name(self, value):
+        """Validation of the "name" field - special characters are not allowed"""
+
+        if not slugify(value):
+            raise serializers.ValidationError('Special characters are not allowed in the name.')
+        return value
+
+    def validate_surname(self, value):
+        """Validation of the "surname" field - special characters are not allowed"""
+
+        if not slugify(value):
+            raise serializers.ValidationError('Special characters are not allowed in the surname.')
+        return value
+
     def to_representation(self, instance):
         """for better front-end data readability, I redefined this method:
         added urls, changed the name of the fields """
